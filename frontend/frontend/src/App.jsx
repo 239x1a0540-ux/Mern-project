@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
 import AuthPage  from "./pages/AuthPage";
 import Dashboard from "./pages/Dashboard";
 import UserDashboard from "./pages/UserDashboard";
@@ -8,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/"          element={<AuthPage  defaultTab="signup" />} />
+        <Route path="/"          element={<LandingPage />} />
         <Route path="/register"  element={<AuthPage  defaultTab="signup" />} />
         <Route path="/login"     element={<AuthPage  defaultTab="login"  />} />
 

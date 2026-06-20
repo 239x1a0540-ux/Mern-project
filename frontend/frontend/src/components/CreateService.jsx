@@ -45,11 +45,30 @@ export default function CreateService({ onServiceAdded }) {
     }));
   }
 
+  const getTodayString = () => {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
   async function handleSubmit(event) {
     event.preventDefault();
     if (!form.vehicle || !form.owner || !form.type) {
       setErrorMessage("Please fill in all required fields.");
       return;
+    }
+
+    if (form.date) {
+      const selected = new Date(form.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      selected.setHours(0, 0, 0, 0);
+      if (selected < today) {
+        setErrorMessage("You cannot book a service for a past date.");
+        return;
+      }
     }
 
     setLoading(true);
@@ -166,6 +185,7 @@ export default function CreateService({ onServiceAdded }) {
                   <input
                     type="date"
                     value={form.date}
+                    min={getTodayString()}
                     onChange={e => setForm(prev => ({ ...prev, date: e.target.value }))}
                   />
                 </div>

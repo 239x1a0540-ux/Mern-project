@@ -82,29 +82,47 @@ export default function AdminOverview({ setActive, services, onUpdateStatus }) {
                   <th>Vehicle No.</th>
                   <th>Owner</th>
                   <th>Service Type</th>
-                  <th>Date</th>
+                  <th>Booking Date</th>
+                  <th>Completion Date</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredServices.length === 0 ? (
                   <tr>
-                    <td colSpan="6" style={{ textAlign: "center", padding: "24px", color: "#9ca3af" }}>
+                    <td colSpan="7" style={{ textAlign: "center", padding: "24px", color: "#9ca3af" }}>
                       {searchTerm ? `No results found for "${searchTerm}"` : "No services booked yet."}
                     </td>
                   </tr>
                 ) : (
-                  filteredServices.map((s, i) => (
-                    <tr key={s._id || i}>
-                      <td style={{ color: "#9ca3af", fontSize: "0.8rem" }}>{i + 1}</td>
-                      <td>
-                        <span style={{ fontWeight: 600, fontFamily: "monospace" }}>{s.vehicle}</span>
-                      </td>
-                      <td>{s.owner}</td>
-                      <td>{s.type}</td>
-                      <td style={{ color: "#6b7280" }}>{s.date}</td>
-                      <td>
-                        {s.status === "completed" || s.status === "cancelled" ? (
+                  filteredServices.map((s, i) => {
+                    const getCompletionDate = (item) => {
+                      if (item.status === "completed" && item.updatedAt) {
+                        const d = new Date(item.updatedAt);
+                        if (!isNaN(d.getTime())) {
+                          return d.toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                          });
+                        }
+                      }
+                      return "—";
+                    };
+                    return (
+                      <tr key={s._id || i}>
+                        <td style={{ color: "#9ca3af", fontSize: "0.8rem" }}>{i + 1}</td>
+                        <td>
+                          <span style={{ fontWeight: 600, fontFamily: "monospace" }}>{s.vehicle}</span>
+                        </td>
+                        <td>{s.owner}</td>
+                        <td>{s.type}</td>
+                        <td style={{ color: "#6b7280" }}>{s.date}</td>
+                        <td style={{ color: s.status === "completed" ? "#059669" : "#9ca3af", fontWeight: s.status === "completed" ? "600" : "400" }}>
+                          {getCompletionDate(s)}
+                        </td>
+                        <td>
+                          {s.status === "completed" || s.status === "cancelled" ? (
                           <span style={{
                             display: "inline-flex",
                             alignItems: "center",
@@ -142,8 +160,9 @@ export default function AdminOverview({ setActive, services, onUpdateStatus }) {
                         )}
                       </td>
                     </tr>
-                  ))
-                )}
+                  );
+                })
+              )}
               </tbody>
             </table>
           </div>

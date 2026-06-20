@@ -21,7 +21,7 @@ const USER_MENU = [
   { key: "overview", label: "Dashboard", icon: "" },
   { key: "bookings", label: "My Bookings", icon: "" },
   { key: "book", label: "Book Service", icon: "" },
-  { key: "wallet", label: "Wallet", icon: "" },
+  { key: "wallet", label: "Spend Analysis", icon: "" },
   { key: "profile", label: "My Profile", icon: "" }
 ];
 
@@ -61,7 +61,7 @@ export default function UserDashboard() {
     } else if (activePanel === "book") {
       return <CustomerBookForm onServiceAdded={fetchServices} userName={userName} />;
     } else if (activePanel === "wallet") {
-      return <CustomerWallet />;
+      return <CustomerWallet services={servicesList} />;
     } else if (activePanel === "profile") {
       return <CustomerProfile />;
     } else {
@@ -79,7 +79,7 @@ export default function UserDashboard() {
     overview: "DashBoard",
     bookings: "My Bookings History",
     book: "Book a New Service",
-    wallet: "My Wallet",
+    wallet: "Service Spending Analysis",
     profile: "My Profile Settings"
   };
 
