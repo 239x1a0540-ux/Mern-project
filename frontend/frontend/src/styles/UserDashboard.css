@@ -7,8 +7,12 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6;
+  background-color: #f8fafc;
   color: #1f2937;
+}
+
+h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
+  font-family: 'Outfit', sans-serif !important;
 }
 
 .ud-shell {
@@ -20,7 +24,7 @@ body {
 
 .ud-sidebar {
   width: 220px;
-  background-color: #1f2937;
+  background-color: #11151c;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -32,13 +36,13 @@ body {
   align-items: center;
   gap: 10px;
   padding: 16px;
-  border-bottom: 1px solid #374151;
+  border-bottom: 1px solid #161c25;
 }
 
 .ud-sidebar-logo-icon {
   width: 32px;
   height: 32px;
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -97,18 +101,18 @@ body {
 }
 
 .ud-nav-item:hover {
-  background-color: #374151;
+  background-color: #161c25;
   color: #ffffff;
 }
 
 .ud-nav-item.active {
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   color: #ffffff;
 }
 
 .ud-sidebar-footer {
   padding: 16px;
-  border-top: 1px solid #374151;
+  border-top: 1px solid #161c25;
 }
 
 .ud-sidebar-user {
@@ -122,7 +126,7 @@ body {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,7 +138,7 @@ body {
 .ud-sidebar-user-info strong {
   display: block;
   font-size: 0.8rem;
-  color: #f3f4f6;
+  color: #f8fafc;
 }
 
 .ud-sidebar-user-info span {
@@ -152,7 +156,7 @@ body {
 .ud-topbar {
   height: 56px;
   background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -207,7 +211,7 @@ body {
 
 .ud-stat-card {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 16px;
   display: flex;
@@ -232,7 +236,7 @@ body {
   fill: none;
 }
 
-.ud-stat-icon.blue { background-color: #3b82f6; }
+.ud-stat-icon.blue { background-color: #ff8a3d; }
 .ud-stat-icon.yellow { background-color: #f59e0b; }
 .ud-stat-icon.green { background-color: #10b981; }
 .ud-stat-icon.purple { background-color: #8b5cf6; }
@@ -264,7 +268,7 @@ body {
 
 .ud-panel-card {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 20px;
 }
@@ -292,7 +296,7 @@ body {
   align-items: center;
   gap: 8px;
   background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
   padding: 8px 12px;
   margin-bottom: 16px;
@@ -333,8 +337,8 @@ body {
 }
 
 .ud-filter-btn.active {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
+  background-color: #ff8a3d;
+  border-color: #ff8a3d;
   color: #ffffff;
 }
 
@@ -351,15 +355,15 @@ body {
 .ud-table th {
   text-align: left;
   padding: 10px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e2e8f0;
   color: #4b5563;
   font-weight: 600;
 }
 
 .ud-table td {
   padding: 10px;
-  border-bottom: 1px solid #f3f4f6;
-  color: #374151;
+  border-bottom: 1px solid #f8fafc;
+  color: #161c25;
 }
 
 .ud-table tbody tr:hover {
@@ -407,12 +411,12 @@ body {
 }
 
 .ud-action-btn.primary {
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   color: #ffffff;
 }
 
 .ud-action-btn.primary:hover {
-  background-color: #2563eb;
+  background-color: #e67a30;
 }
 
 .ud-action-btn.outline {
@@ -427,7 +431,7 @@ body {
 
 .ud-form-card {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 24px;
   width: 100%;
@@ -478,14 +482,14 @@ body {
 .ud-form-field input:focus,
 .ud-form-field select:focus,
 .ud-form-field textarea:focus {
-  border-color: #3b82f6;
+  border-color: #ff8a3d;
 }
 
 .ud-form-submit {
   width: auto;
   min-width: 150px;
   padding: 10px 20px;
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 600;
@@ -496,7 +500,7 @@ body {
 }
 
 .ud-form-submit:hover {
-  background-color: #2563eb;
+  background-color: #e67a30;
 }
 
 .ud-form-success {
@@ -506,7 +510,7 @@ body {
 
 .ud-profile-card {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 24px;
   max-width: 500px;
@@ -518,14 +522,14 @@ body {
   gap: 16px;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f8fafc;
 }
 
 .ud-profile-avatar {
   width: 56px;
   height: 56px;
   border-radius: 8px;
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -551,8 +555,8 @@ body {
   border-radius: 12px;
   font-size: 0.65rem;
   font-weight: 600;
-  background-color: #eff6ff;
-  color: #2563eb;
+  background-color: #fff4eb;
+  color: #e67a30;
   margin-top: 4px;
   text-transform: capitalize;
 }
@@ -587,9 +591,9 @@ body {
 .ud-profile-edit-btn {
   padding: 6px 12px;
   border-radius: 6px;
-  border: 1px solid #3b82f6;
+  border: 1px solid #ff8a3d;
   background-color: transparent;
-  color: #3b82f6;
+  color: #ff8a3d;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
@@ -597,12 +601,12 @@ body {
 }
 
 .ud-profile-edit-btn:hover {
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   color: #ffffff;
 }
 
 .ud-wallet-card {
-  background-color: #3b82f6;
+  background-color: #ff8a3d;
   border-radius: 8px;
   padding: 24px;
   color: #ffffff;
@@ -645,7 +649,7 @@ body {
 
 .ud-wallet-btn.pay {
   background-color: #ffffff;
-  color: #3b82f6;
+  color: #ff8a3d;
 }
 
 .ud-wallet-stats {
@@ -657,7 +661,7 @@ body {
 
 .ud-wstat {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
@@ -690,7 +694,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f8fafc;
 }
 
 .ud-tx-info strong {

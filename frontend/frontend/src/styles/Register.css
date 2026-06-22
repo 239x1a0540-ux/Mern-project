@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6;
+  background-color: #f8fafc;
   color: #1f2937;
 }
 
@@ -18,13 +18,13 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #f3f4f6;
+  background-color: #f8fafc;
 }
 
 .register-panel {
   background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
   padding: 32px;
   width: 100%;
   max-width: 400px;
@@ -42,7 +42,8 @@ body {
 }
 
 .form-header h2 {
-  font-size: 1.35rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #111827;
   margin-bottom: 4px;
@@ -55,7 +56,7 @@ body {
 
 .auth-tabs {
   display: flex;
-  background-color: #f3f4f6;
+  background-color: #f8fafc;
   border-radius: 8px;
   padding: 4px;
   margin-bottom: 20px;
@@ -74,11 +75,12 @@ body {
   border-radius: 6px;
   cursor: pointer;
   text-align: center;
+  transition: 0.25s ease;
 }
 
 .auth-tab.active {
   background-color: #ffffff;
-  color: #111827;
+  color: #ff8a3d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -115,15 +117,17 @@ body {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.85rem;
   color: #111827;
   outline: none;
   background-color: #ffffff;
+  transition: 0.25s ease;
 }
 
 .input-wrapper input:focus {
-  border-color: #3b82f6;
+  border-color: #ff8a3d;
+  box-shadow: 0 0 0 3px rgba(255,138,61,0.14);
 }
 
 .input-wrapper input.is-invalid {
@@ -155,7 +159,7 @@ body {
 
 .strength-bar.active-weak { background-color: #ef4444; }
 .strength-bar.active-fair { background-color: #f59e0b; }
-.strength-bar.active-good { background-color: #3b82f6; }
+.strength-bar.active-good { background-color: #ff8a3d; }
 .strength-bar.active-strong { background-color: #10b981; }
 
 .strength-label {
@@ -173,7 +177,7 @@ body {
 
 .terms-checkbox {
   cursor: pointer;
-  accent-color: #3b82f6;
+  accent-color: #ff8a3d;
 }
 
 .terms-text {
@@ -182,7 +186,7 @@ body {
 }
 
 .terms-link {
-  color: #3b82f6;
+  color: #ff8a3d;
   text-decoration: none;
 }
 
@@ -192,24 +196,27 @@ body {
 
 .submit-btn {
   width: 100%;
-  padding: 10px;
-  background-color: #3b82f6;
+  padding: 12px;
+  background-color: #ff8a3d;
   border: none;
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   margin-top: 8px;
+  transition: 0.25s ease;
 }
 
 .submit-btn:hover {
-  background-color: #2563eb;
+  background-color: #e67a30;
+  transform: translateY(-1px);
 }
 
 .submit-btn:disabled {
   background-color: #9ca3af;
   cursor: not-allowed;
+  transform: none;
 }
 
 .btn-spinner {
@@ -256,7 +263,7 @@ body {
 }
 
 .login-redirect a {
-  color: #3b82f6;
+  color: #ff8a3d;
   text-decoration: none;
   font-weight: 600;
 }
