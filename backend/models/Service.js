@@ -10,6 +10,10 @@ const serviceSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        phone: {
+            type: String,
+            default: ""
+        },
         type: {
             type: String,
             required: true

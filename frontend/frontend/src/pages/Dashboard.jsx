@@ -18,11 +18,11 @@ function getAuthHeaders() {
 }
 
 const NAVIGATION_MENU = [
-  { key: "dashboard", label: "Dashboard", icon: "" },
-  { key: "services", label: "All Services", icon: "" },
-  { key: "vehicles", label: "Vehicles", icon: "" },
-  { key: "add", label: "Add Service", icon: "" },
-  { key: "reports", label: "Reports", icon: "" }
+  { key: "dashboard", label: "Dashboard", icon: <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg> },
+  { key: "services", label: "All Services", icon: <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg> },
+  { key: "vehicles", label: "Vehicles", icon: <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg> },
+  { key: "add", label: "Add Service", icon: <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg> },
+  { key: "reports", label: "Reports", icon: <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg> }
 ];
 
 export default function Dashboard() {
@@ -101,6 +101,9 @@ export default function Dashboard() {
     <div className="dash-shell">
       <aside className="dash-sidebar">
         <div className="sidebar-logo">
+          <div className="sidebar-logo-icon">
+            <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
           <div className="sidebar-logo-text">
             Vehicle Hub
             <small>Admin Portal</small>
@@ -114,7 +117,8 @@ export default function Dashboard() {
               className={`nav-item ${activePanel === item.key ? "active" : ""}`}
               onClick={() => setActivePanel(item.key)}
             >
-              <span className="nav-label" style={{ opacity: 1, pointerEvents: "auto", marginLeft: 4 }}>
+              {item.icon}
+              <span className="nav-label">
                 {item.label}
               </span>
             </button>
@@ -123,20 +127,24 @@ export default function Dashboard() {
 
         <div className="sidebar-footer">
           <div className="sidebar-user">
-            <div className="sidebar-user-info" style={{ opacity: 1 }}>
+            <div className="avatar">
+              {userName.charAt(0).toUpperCase()}
+            </div>
+            <div className="sidebar-user-info">
               <strong>{userName}</strong>
-              <span>Admin</span>
+              <span>Admin User</span>
             </div>
           </div>
-          <button className="nav-item" style={{ marginTop: 8 }} onClick={handleLogout}>
-            <span className="nav-label" style={{ opacity: 1, pointerEvents: "auto", marginLeft: 4 }}>
+          <button className="nav-item" onClick={handleLogout}>
+            <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+            <span className="nav-label">
               Logout
             </span>
           </button>
         </div>
       </aside>
 
-      <div className="dash-main" style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <div className="dash-main">
         <header className="dash-topbar">
           <div className="topbar-left">
             <span className="topbar-title">{panelTitles[activePanel]}</span>
@@ -149,11 +157,10 @@ export default function Dashboard() {
           </div>
         </header>
 
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <div className="dash-content">
           {renderActivePanel()}
+          <Footer />
         </div>
-
-        <Footer />
       </div>
     </div>
   );

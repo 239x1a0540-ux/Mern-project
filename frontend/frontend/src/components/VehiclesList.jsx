@@ -26,25 +26,23 @@ export default function VehiclesList({ services }) {
   return (
     <div className="dash-content" key="vehicles">
       <div className="vehicles-page">
-        <div style={{
-          backgroundColor: "#ffffff",
-          border: "1px solid #e5e7eb",
-          borderRadius: 8,
-          padding: "12px 18px"
-        }}>
+        <div className="vehicles-header">
           <h3>Registered Vehicles</h3>
-          <p style={{ fontSize: "0.8rem", color: "#6b7280" }}>{vehiclesList.length} vehicles found in database</p>
+          <p>{vehiclesList.length} vehicles found in database</p>
         </div>
 
         {vehiclesList.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "40px", backgroundColor: "#ffffff", borderRadius: 8, border: "1px solid #e5e7eb" }}>
-            <p style={{ color: "#9ca3af" }}>No registered vehicles found.</p>
+          <div className="vehicles-header" style={{ textAlign: "center", padding: "40px" }}>
+            <p style={{ color: "var(--c-text-muted)" }}>No registered vehicles found.</p>
           </div>
         ) : (
           <div className="vehicles-grid">
             {vehiclesList.map((v, idx) => (
               <div className="vehicle-card" key={v.plate || idx}>
                 <div className="vc-top">
+                  <div className="vc-icon">
+                    <svg viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                  </div>
                   <span className="vc-plate">{v.plate}</span>
                 </div>
                 <div>

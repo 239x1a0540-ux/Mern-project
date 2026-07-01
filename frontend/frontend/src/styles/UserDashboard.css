@@ -1,18 +1,13 @@
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   background-color: #f8fafc;
   color: #1f2937;
 }
 
 h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: Outfit, sans-serif !important;
 }
 
 .ud-shell {
@@ -25,7 +20,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-sidebar {
   width: 220px;
   background-color: #11151c;
-  color: #ffffff;
+  color: #fff;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -52,7 +47,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-sidebar-logo-icon svg {
   width: 18px;
   height: 18px;
-  stroke: #ffffff;
+  stroke: #fff;
   fill: none;
 }
 
@@ -95,19 +90,19 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-nav-item svg {
   width: 16px;
   height: 16px;
-  stroke: currentColor;
+  stroke: currentcolor;
   fill: none;
   stroke-width: 2;
 }
 
 .ud-nav-item:hover {
   background-color: #161c25;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-nav-item.active {
   background-color: #ff8a3d;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-sidebar-footer {
@@ -132,7 +127,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   justify-content: center;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-sidebar-user-info strong {
@@ -155,7 +150,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 
 .ud-topbar {
   height: 56px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
@@ -210,7 +205,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-stat-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 16px;
@@ -232,7 +227,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-stat-icon svg {
   width: 20px;
   height: 20px;
-  stroke: #ffffff;
+  stroke: #fff;
   fill: none;
 }
 
@@ -267,7 +262,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-panel-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 20px;
@@ -329,7 +324,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   padding: 6px 12px;
   border-radius: 12px;
   border: 1px solid #d1d5db;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #4b5563;
   font-size: 0.8rem;
   font-weight: 600;
@@ -339,7 +334,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-filter-btn.active {
   background-color: #ff8a3d;
   border-color: #ff8a3d;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-table-wrap {
@@ -406,13 +401,13 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 .ud-action-btn svg {
   width: 14px;
   height: 14px;
-  stroke: currentColor;
+  stroke: currentcolor;
   fill: none;
 }
 
 .ud-action-btn.primary {
   background-color: #ff8a3d;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-action-btn.primary:hover {
@@ -420,7 +415,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-action-btn.outline {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #d1d5db;
   color: #4b5563;
 }
@@ -430,7 +425,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-form-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 24px;
@@ -476,7 +471,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   border-radius: 6px;
   font-size: 0.85rem;
   outline: none;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .ud-form-field input:focus,
@@ -490,7 +485,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   min-width: 150px;
   padding: 10px 20px;
   background-color: #ff8a3d;
-  color: #ffffff;
+  color: #fff;
   font-size: 0.85rem;
   font-weight: 600;
   border: none;
@@ -509,7 +504,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-profile-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 24px;
@@ -535,7 +530,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   justify-content: center;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-profile-name {
@@ -602,20 +597,20 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 
 .ud-profile-edit-btn:hover {
   background-color: #ff8a3d;
-  color: #ffffff;
+  color: #fff;
 }
 
 .ud-wallet-card {
   background-color: #ff8a3d;
   border-radius: 8px;
   padding: 24px;
-  color: #ffffff;
+  color: #fff;
   margin-bottom: 16px;
 }
 
 .ud-wallet-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   font-weight: 500;
   margin-bottom: 4px;
 }
@@ -643,12 +638,12 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-wallet-btn.add {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background-color: rgb(255 255 255 / 20%);
+  color: #fff;
 }
 
 .ud-wallet-btn.pay {
-  background-color: #ffffff;
+  background-color: #fff;
   color: #ff8a3d;
 }
 
@@ -660,7 +655,7 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
 }
 
 .ud-wstat {
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 12px;
@@ -758,32 +753,37 @@ h1, h2, h3, .ud-panel-head h2, .ud-panel-head h3, .ud-form-card h3 {
   color: #991b1b;
 }
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .ud-bottom {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .ud-sidebar {
     width: 60px;
   }
+
   .ud-sidebar-logo-text,
   .ud-nav-item span:not(.ud-nav-tooltip),
   .ud-sidebar-user-info {
     display: none;
   }
+
   .ud-sidebar-logo {
     padding: 12px;
     justify-content: center;
   }
+
   .ud-nav-item {
     justify-content: center;
     padding: 10px;
   }
+
   .ud-sidebar-user {
     justify-content: center;
   }
+
   .ud-stats-row {
     grid-template-columns: 1fr 1fr;
   }

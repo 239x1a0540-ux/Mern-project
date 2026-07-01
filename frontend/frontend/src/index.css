@@ -1,0 +1,18 @@
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+}
+.sidebar-item-active {
+    background-color: #ff8c42 !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+}
+.card-hover {
+    transition: all 0.2s ease-in-out;
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}

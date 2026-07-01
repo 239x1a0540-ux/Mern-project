@@ -24,6 +24,7 @@ export default function CreateService({ onServiceAdded }) {
   const [form, setForm] = useState({
     vehicle: "",
     owner: "",
+    phone: "",
     type: "",
     date: "",
     cost: "",
@@ -55,7 +56,7 @@ export default function CreateService({ onServiceAdded }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    if (!form.vehicle || !form.owner || !form.type) {
+    if (!form.vehicle || !form.owner || !form.phone || !form.type) {
       setErrorMessage("Please fill in all required fields.");
       return;
     }
@@ -84,6 +85,7 @@ export default function CreateService({ onServiceAdded }) {
       await axios.post("http://localhost:5000/api/services", {
         vehicle: form.vehicle,
         owner: form.owner,
+        phone: form.phone,
         type: form.type,
         date: defaultDate,
         cost: form.cost || 0,
@@ -97,6 +99,7 @@ export default function CreateService({ onServiceAdded }) {
       setForm({
         vehicle: "",
         owner: "",
+        phone: "",
         type: "",
         date: "",
         cost: "",
@@ -120,31 +123,15 @@ export default function CreateService({ onServiceAdded }) {
           <p>Fill in the vehicle and customer details below</p>
 
           {showSuccess && (
-            <div style={{
-              backgroundColor: "#ecfdf5",
-              border: "1px solid #a7f3d0",
-              color: "#065f46",
-              padding: "12px",
-              borderRadius: "6px",
-              marginBottom: "16px",
-              fontSize: "0.85rem",
-              fontWeight: 600
-            }}>
+            <div className="form-alert success">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" fill="none" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
               Service Added successfully!
             </div>
           )}
 
           {errorMessage && (
-            <div style={{
-              backgroundColor: "#fef2f2",
-              border: "1px solid #fca5a5",
-              color: "#991b1b",
-              padding: "12px",
-              borderRadius: "6px",
-              marginBottom: "16px",
-              fontSize: "0.85rem",
-              fontWeight: 600
-            }}>
+            <div className="form-alert error">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" fill="none" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               {errorMessage}
             </div>
           )}
@@ -171,6 +158,15 @@ export default function CreateService({ onServiceAdded }) {
                 </div>
 
                 <div className="form-field">
+                  <label>Phone Number *</label>
+                  <input
+                    placeholder="e.g. 9876543210"
+                    value={form.phone}
+                    onChange={e => setForm(prev => ({ ...prev, phone: e.target.value }))}
+                  />
+                </div>
+
+                <div className="form-field">
                   <label>Service Type *</label>
                   <select value={form.type} onChange={handleTypeChange}>
                     <option value="">Select service…</option>
@@ -192,14 +188,14 @@ export default function CreateService({ onServiceAdded }) {
 
                 <div className="form-field">
                   <label>
-                    Cost (₹) {form.cost !== "" && <span style={{ color: "#3b82f6", fontSize: "0.7rem" }}> (Auto-filled Rate)</span>}
+                    Cost (₹) {form.cost !== "" && <span style={{ color: "var(--c-primary)", fontSize: "0.75rem", fontWeight: 500 }}> (Auto-filled Rate)</span>}
                   </label>
                   <input
                     type="text"
                     value={form.cost !== "" ? `₹ ${form.cost}` : ""}
                     readOnly
                     placeholder="Auto-filled on selection"
-                    style={{ backgroundColor: "#f3f4f6", cursor: "not-allowed" }}
+                    style={{ backgroundColor: "var(--c-bg)", cursor: "not-allowed", opacity: 0.8 }}
                   />
                 </div>
 

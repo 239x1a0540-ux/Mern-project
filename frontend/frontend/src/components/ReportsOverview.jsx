@@ -16,27 +16,27 @@ export default function ReportsOverview({ services }) {
       <div className="reports-page">
         <div className="reports-top">
           <div className="report-card">
-            <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase" }}>Total Revenue</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#3b82f6", marginTop: 4 }}>
+            <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--c-text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>Total Revenue</p>
+            <p style={{ fontSize: "1.8rem", fontWeight: 700, fontFamily: "var(--font-head)", color: "var(--c-primary)", margin: "8px 0" }}>
               ₹{totalRevenue.toLocaleString("en-IN")}
             </p>
-            <p style={{ fontSize: "0.7rem", color: "#9ca3af", marginTop: 4 }}>Completed bookings only</p>
+            <p style={{ fontSize: "0.75rem", color: "var(--c-text-light)" }}>Completed bookings only</p>
           </div>
 
           <div className="report-card">
-            <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase" }}>Total Services</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#f59e0b", marginTop: 4 }}>
+            <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--c-text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>Total Services</p>
+            <p style={{ fontSize: "1.8rem", fontWeight: 700, fontFamily: "var(--font-head)", color: "var(--c-text-main)", margin: "8px 0" }}>
               {services.length}
             </p>
-            <p style={{ fontSize: "0.7rem", color: "#9ca3af", marginTop: 4 }}>All time booked count</p>
+            <p style={{ fontSize: "0.75rem", color: "var(--c-text-light)" }}>All time booked count</p>
           </div>
 
           <div className="report-card">
-            <p style={{ fontSize: "0.75rem", fontWeight: 600, color: "#9ca3af", textTransform: "uppercase" }}>Completion Rate</p>
-            <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#10b981", marginTop: 4 }}>
+            <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--c-text-muted)", textTransform: "uppercase", letterSpacing: "0.5px" }}>Completion Rate</p>
+            <p style={{ fontSize: "1.8rem", fontWeight: 700, fontFamily: "var(--font-head)", color: "var(--c-success)", margin: "8px 0" }}>
               {services.length > 0 ? `${Math.round((completedCount / services.length) * 100)}%` : "0%"}
             </p>
-            <p style={{ fontSize: "0.7rem", color: "#9ca3af", marginTop: 4 }}>Out of total bookings</p>
+            <p style={{ fontSize: "0.75rem", color: "var(--c-text-light)" }}>Out of total bookings</p>
           </div>
         </div>
 
@@ -61,32 +61,30 @@ export default function ReportsOverview({ services }) {
 
           <div className="rcard">
             <h4>Status Breakdown</h4>
-            <div className="donut-wrap" style={{ marginTop: 12 }}>
-              <div className="donut-legend">
-                <div className="donut-row">
-                  <span className="donut-dot-label">
-                    <span className="donut-dot" style={{ backgroundColor: "#10b981" }} /> Completed
-                  </span>
-                  <span className="donut-pct">
-                    {services.length > 0 ? Math.round((completedCount / total) * 100) : 0}%
-                  </span>
-                </div>
-                <div className="donut-row">
-                  <span className="donut-dot-label">
-                    <span className="donut-dot" style={{ backgroundColor: "#f59e0b" }} /> Pending
-                  </span>
-                  <span className="donut-pct">
-                    {services.length > 0 ? Math.round((pendingCount / total) * 100) : 0}%
-                  </span>
-                </div>
-                <div className="donut-row">
-                  <span className="donut-dot-label">
-                    <span className="donut-dot" style={{ backgroundColor: "#3b82f6" }} /> In Progress
-                  </span>
-                  <span className="donut-pct">
-                    {services.length > 0 ? Math.round((progressCount / total) * 100) : 0}%
-                  </span>
-                </div>
+            <div className="donut-wrap" style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 12 }}>
+              <div className="donut-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--c-text-main)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "var(--c-success)" }} /> Completed
+                </span>
+                <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--c-text-muted)" }}>
+                  {services.length > 0 ? Math.round((completedCount / total) * 100) : 0}%
+                </span>
+              </div>
+              <div className="donut-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--c-text-main)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "var(--c-warning)" }} /> Pending
+                </span>
+                <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--c-text-muted)" }}>
+                  {services.length > 0 ? Math.round((pendingCount / total) * 100) : 0}%
+                </span>
+              </div>
+              <div className="donut-row" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.9rem", fontWeight: 600, color: "var(--c-text-main)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ width: 10, height: 10, borderRadius: "50%", backgroundColor: "var(--c-info)" }} /> In Progress
+                </span>
+                <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--c-text-muted)" }}>
+                  {services.length > 0 ? Math.round((progressCount / total) * 100) : 0}%
+                </span>
               </div>
             </div>
           </div>

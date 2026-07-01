@@ -21,17 +21,8 @@ export default function ManageServices({ services, onUpdateStatus }) {
           <button
             key={f}
             onClick={() => setStatusFilter(f)}
-            style={{
-              padding: "6px 16px",
-              borderRadius: "16px",
-              border: "1px solid",
-              fontSize: "0.8rem",
-              fontWeight: 600,
-              cursor: "pointer",
-              backgroundColor: statusFilter === f ? "#3b82f6" : "#ffffff",
-              borderColor: statusFilter === f ? "#3b82f6" : "#d1d5db",
-              color: statusFilter === f ? "#ffffff" : "#4b5563"
-            }}
+            className={`action-btn ${statusFilter === f ? 'primary' : 'outline'}`}
+            style={{ width: "auto", padding: "8px 16px", marginBottom: 0, borderRadius: "24px" }}
           >
             {f === "all" ? "All" : f === "progress" ? "In Progress" : f.charAt(0).toUpperCase() + f.slice(1)}
           </button>
@@ -59,6 +50,7 @@ export default function ManageServices({ services, onUpdateStatus }) {
                 <th>#</th>
                 <th>Vehicle No.</th>
                 <th>Owner</th>
+                <th>Phone</th>
                 <th>Service Type</th>
                 <th>Booking Date</th>
                 <th>Completion Date</th>
@@ -69,7 +61,7 @@ export default function ManageServices({ services, onUpdateStatus }) {
             <tbody>
               {filteredServices.length === 0 ? (
                 <tr>
-                  <td colSpan="8" style={{ textAlign: "center", padding: "24px", color: "#9ca3af" }}>
+                  <td colSpan="9" style={{ textAlign: "center", padding: "24px", color: "#9ca3af" }}>
                     No services match the current filter.
                   </td>
                 </tr>
@@ -90,47 +82,28 @@ export default function ManageServices({ services, onUpdateStatus }) {
                   };
                   return (
                     <tr key={s._id || i}>
-                      <td style={{ color: "#9ca3af", fontSize: "0.8rem" }}>{i + 1}</td>
+                      <td style={{ color: "#9ca3af", fontSize: "0.85rem", fontWeight: "600" }}>{i + 1}</td>
                       <td>
-                        <span style={{ fontWeight: 600, fontFamily: "monospace" }}>{s.vehicle}</span>
+                        <span style={{ fontWeight: 700, fontFamily: "monospace", letterSpacing: "0.5px" }}>{s.vehicle}</span>
                       </td>
-                      <td>{s.owner}</td>
+                      <td style={{ fontWeight: 500 }}>{s.owner}</td>
+                      <td>{s.phone || "—"}</td>
                       <td>{s.type}</td>
-                      <td style={{ color: "#6b7280" }}>{s.date}</td>
-                      <td style={{ color: s.status === "completed" ? "#059669" : "#9ca3af", fontWeight: s.status === "completed" ? "600" : "400" }}>
+                      <td style={{ color: "#64748b" }}>{s.date}</td>
+                      <td style={{ color: s.status === "completed" ? "#10b981" : "#94a3b8", fontWeight: s.status === "completed" ? "600" : "400" }}>
                         {getCompletionDate(s)}
                       </td>
                       <td style={{ fontWeight: 600 }}>₹{(s.cost || 0).toLocaleString("en-IN")}</td>
                       <td>
                         {s.status === "completed" || s.status === "cancelled" ? (
-                        <span style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 4,
-                          padding: "2px 8px",
-                          borderRadius: "12px",
-                          fontSize: "0.75rem",
-                          fontWeight: "600",
-                          background: s.status === "completed" ? "#dcfce7" : "#fee2e2",
-                          color: s.status === "completed" ? "#059669" : "#dc2626"
-                        }}>
+                        <span className={`badge ${s.status}`}>
                           {s.status === "completed" ? "Completed" : "Cancelled"}
                         </span>
                       ) : (
                         <select
                           value={s.status}
                           onChange={e => onUpdateStatus(s._id, e.target.value)}
-                          style={{
-                            padding: "4px 8px",
-                            borderRadius: "6px",
-                            border: "1px solid #d1d5db",
-                            fontSize: "0.75rem",
-                            fontWeight: "600",
-                            cursor: "pointer",
-                            outline: "none",
-                            backgroundColor: s.status === "progress" ? "#eff6ff" : "#fffbeb",
-                            color: s.status === "progress" ? "#2563eb" : "#d97706"
-                          }}
+                          className={`status-select ${s.status}`}
                         >
                           <option value="pending">Pending</option>
                           <option value="progress">In Progress</option>

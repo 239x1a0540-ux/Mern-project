@@ -53,7 +53,8 @@ app.get("/",(req,res)=>{
 /* ── User Registration (role = "user" by default) ───────────── */
 app.post("/api/register",async (req,res)=>{
     try{
-        const {fullname,email,password,phone} = req.body;
+        const {fullname,password,phone} = req.body;
+        const email = req.body.email ? req.body.email.toLowerCase().trim() : "";
         const existingUser=await User.findOne({email:email});
 
         if(existingUser){
@@ -146,9 +147,10 @@ app.post("/api/register-admin",async (req,res)=>{
 /* ── Login (returns role in response) ───────────────────────── */
 app.post("/api/login",async (req,res)=>{
     try{
-        const {email,password} =req.body;
+        const {password} =req.body;
+        const email = req.body.email ? req.body.email.toLowerCase().trim() : "";
         const user=await User.findOne({email:email});
-        console.log(email,password);
+        console.log("Login attempt:", email);
         if(!user){
             return res.status(400).json({
                 message:"Invalid email or password",
@@ -175,8 +177,8 @@ app.post("/api/login",async (req,res)=>{
                 });
             }
             else{
-                return res.status(200).json({
-                    message:"Failed"
+                return res.status(401).json({
+                    message:"Incorrect password"
                 });
             }
         });
@@ -247,10 +249,11 @@ app.put("/api/profile", authMiddleware, async (req, res) => {
 /* ── Add Service (both admin and user can add) ──────────────── */
 app.post("/api/services", authMiddleware, async (req, res) => {
     try {
-        const { vehicle, owner, type, date, cost, status, notes } = req.body;
+        const { vehicle, owner, phone, type, date, cost, status, notes } = req.body;
         const newService = new Service({
             vehicle,
             owner,
+            phone,
             type,
             date,
             cost,
@@ -320,6 +323,32 @@ app.put("/api/services/:id/status", authMiddleware, adminOnly, async (req, res) 
     } catch (error) {
         res.status(500).json({
             message: "Failed to update service status",
+            error: error.message
+        });
+    }
+});
+
+/* ── Cancel Service (user side) ───────────────────────── */
+app.put("/api/services/:id/cancel", authMiddleware, async (req, res) => {
+    try {
+        const existing = await Service.findById(req.params.id);
+        if (!existing) {
+            return res.status(404).json({ message: "Service not found" });
+        }
+        if (existing.createdBy.toString() !== req.user.userId) {
+            return res.status(403).json({ message: "Not authorized to cancel this service" });
+        }
+        if (existing.status === "completed" || existing.status === "cancelled") {
+            return res.status(400).json({ message: `Service is already ${existing.status} and cannot be cancelled.` });
+        }
+
+        existing.status = "cancelled";
+        await existing.save();
+
+        res.status(200).json({ message: "Service cancelled successfully", service: existing });
+    } catch (error) {
+        res.status(500).json({
+            message: "Failed to cancel service",
             error: error.message
         });
     }
